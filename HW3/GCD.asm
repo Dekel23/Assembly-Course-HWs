@@ -60,14 +60,7 @@ START:
     mov ax, 54
     mov bx, 24
     ;call recGCD
-    mov AH, 0x00    ; BIOS function to read system timer
-    int 0x1A        ; Call BIOS interrupt
     call ExarrGCD
-    mov AH, 0x00    ; BIOS function to read system timer
-    int 0x1A        ; Call BIOS interrupt
-    sub DX, initial_timer_value    ; DX holds the high word of the timer value
-    sbb CX, initial_timer_value    ; CX holds the low word of the timer value
-    mov bx, offset Result
 
 ;return to OS
     mov ax, 4C00h
